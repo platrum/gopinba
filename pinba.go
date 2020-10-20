@@ -1,9 +1,9 @@
 package gopinba
 
 import (
-	"code.google.com/p/goprotobuf/proto"
 	"fmt"
-	ProtoMessage "github.com/kshvakov/gopinba/Pinba"
+	"github.com/golang/protobuf/proto"
+	ProtoMessage "github.com/platrum/gopinba/Pinba"
 	"net"
 	"os"
 	"runtime"
@@ -29,7 +29,7 @@ func (pinba *Pinba) Request() *request {
 		timeStart:   time.Now(),
 		scriptName:  os.Args[0],
 		memoryUsage: memStats.TotalAlloc,
-		timers:      make([]*timer, 0, 10),
+		timers:      make([]*Timer, 0, 10),
 	}
 
 	return request

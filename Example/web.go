@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kshvakov/gopinba"
+	"github.com/platrum/gopinba"
 	"net/http"
 )
 

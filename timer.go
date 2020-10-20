@@ -14,7 +14,7 @@ import (
 //
 type Tags map[string]string
 
-type timer struct {
+type Timer struct {
 	started   bool
 	timeStart time.Time
 	timeEnd   time.Time

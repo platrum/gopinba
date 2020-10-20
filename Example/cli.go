@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/kshvakov/gopinba"
+	"github.com/platrum/gopinba"
 )
 
 func main() {

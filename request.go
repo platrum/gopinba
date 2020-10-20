@@ -9,7 +9,7 @@ type request struct {
 	memoryUsage uint64
 	schema      string
 	scriptName  string
-	timers      []*timer
+	timers      []*Timer
 }
 
 func (request *request) SetSchema(schema string) {
@@ -22,9 +22,9 @@ func (request *request) SetScriptName(scriptName string) {
 	request.scriptName = scriptName
 }
 
-func (request *request) TimerStart(tags *Tags) *timer {
+func (request *request) TimerStart(tags *Tags) *Timer {
 
-	timer := &timer{
+	timer := &Timer{
 		started:   true,
 		timeStart: time.Now(),
 		tags:      tags,
@@ -35,7 +35,7 @@ func (request *request) TimerStart(tags *Tags) *timer {
 	return timer
 }
 
-func (request *request) TimerStop(timer *timer) {
+func (request *request) TimerStop(timer *Timer) {
 
 	timer.started = false
 	timer.timeEnd = time.Now()

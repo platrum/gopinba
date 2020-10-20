@@ -24,7 +24,7 @@ func BenchmarkPinba(b *testing.B) {
 
 	pinba := New(&Options{})
 
-	var tmr *timer
+	var tmr *Timer
 
 	for i := 0; i < b.N; i++ {
 
