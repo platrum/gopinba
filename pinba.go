@@ -2,12 +2,14 @@ package gopinba
 
 import (
 	"fmt"
-	"github.com/golang/protobuf/proto"
-	ProtoMessage "github.com/platrum/gopinba/Pinba"
 	"net"
 	"os"
 	"runtime"
 	"time"
+
+	"github.com/golang/protobuf/proto"
+
+	ProtoMessage "github.com/platrum/gopinba/Pinba"
 )
 
 var memStats runtime.MemStats
@@ -21,11 +23,11 @@ type Pinba struct {
 }
 
 // New Pinba request object
-func (pinba *Pinba) Request() *request {
+func (pinba *Pinba) Request() *Request {
 
 	runtime.ReadMemStats(&memStats)
 
-	request := &request{
+	request := &Request{
 		timeStart:   time.Now(),
 		scriptName:  os.Args[0],
 		memoryUsage: memStats.TotalAlloc,
@@ -36,7 +38,7 @@ func (pinba *Pinba) Request() *request {
 }
 
 // Flush request and send data to Pinba server
-func (pinba *Pinba) Flush(request *request) error {
+func (pinba *Pinba) Flush(request *Request) error {
 
 	if !pinba.connected {
 

@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type request struct {
+type Request struct {
 	timeStart   time.Time
 	memoryUsage uint64
 	schema      string
@@ -12,17 +12,17 @@ type request struct {
 	timers      []*Timer
 }
 
-func (request *request) SetSchema(schema string) {
+func (request *Request) SetSchema(schema string) {
 
 	request.schema = schema
 }
 
-func (request *request) SetScriptName(scriptName string) {
+func (request *Request) SetScriptName(scriptName string) {
 
 	request.scriptName = scriptName
 }
 
-func (request *request) TimerStart(tags *Tags) *Timer {
+func (request *Request) TimerStart(tags *Tags) *Timer {
 
 	timer := &Timer{
 		started:   true,
@@ -35,7 +35,7 @@ func (request *request) TimerStart(tags *Tags) *Timer {
 	return timer
 }
 
-func (request *request) TimerStop(timer *Timer) {
+func (request *Request) TimerStop(timer *Timer) {
 
 	timer.started = false
 	timer.timeEnd = time.Now()
